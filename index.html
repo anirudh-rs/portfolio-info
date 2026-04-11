@@ -124,12 +124,14 @@ nav.scrolled .nav-name { opacity: 1; }
   display: flex; flex-direction: row; align-items: center; gap: 3rem; flex-wrap: wrap;
 }
 .profile-photo {
-  width: 150px; height: 150px;
+  width: 160px; height: 160px;
   border-radius: 50%;
-  object-fit: cover; object-position: center top;
+  object-fit: cover; object-position: center 10%;
   border: 3px solid var(--blue-l);
   flex-shrink: 0;
   display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 .opening-eyebrow {
   font-size: 0.85rem;
@@ -555,8 +557,8 @@ footer {
             <a href="https://github.com/anirudh-rs" target="_blank" style="font-size:13px; color:var(--ink2); text-decoration:none; display:flex; align-items:center; gap:8px;">
               <span style="color:var(--blue);">↗</span> github.com/anirudh-rs
             </a>
-            <a href="mailto:anirudh.raghavendra7@gmail.com" style="font-size:13px; color:var(--ink2); text-decoration:none; display:flex; align-items:center; gap:8px;">
-              <span style="color:var(--blue);">↗</span> anirudh.raghavendra7@gmail.com
+            <a href="/cdn-cgi/l/email-protection#9ffef1f6edeafbf7b1edfef8f7fee9faf1fbedfea8dff8f2fef6f3b1fcf0f2" style="font-size:13px; color:var(--ink2); text-decoration:none; display:flex; align-items:center; gap:8px;">
+              <span style="color:var(--blue);">↗</span> <span class="__cf_email__" data-cfemail="4c2d22253e392824623e2d2b242d3a2922283e2d7b0c2b212d2520622f2321">[email&#160;protected]</span>
             </a>
           </div>
         </div>
@@ -766,11 +768,11 @@ footer {
         <p style="font-size:13.5px; color:var(--ink3); line-height:1.8;">Based in Irvine, CA · Open to relocation<br>Available immediately</p>
       </div>
       <div class="contact-right reveal reveal-delay-1">
-        <a href="mailto:anirudh.raghavendra7@gmail.com" class="contact-link">
+        <a href="/cdn-cgi/l/email-protection#8dece3e4fff8e9e5a3ffeceae5ecfbe8e3e9ffecbacdeae0ece4e1a3eee2e0" class="contact-link">
           <span class="contact-icon">✉</span>
           <div class="contact-text">
             <div class="contact-label">Email</div>
-            <div class="contact-value">anirudh.raghavendra7@gmail.com</div>
+            <div class="contact-value"><span class="__cf_email__" data-cfemail="7b1a1512090e1f1355091a1c131a0d1e151f091a4c3b1c161a121755181416">[email&#160;protected]</span></div>
           </div>
           <span class="contact-arrow">↗</span>
         </a>
@@ -803,7 +805,7 @@ footer {
   </a>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Cursor
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
@@ -828,13 +830,4 @@ footer {
   });
 
   // Progress bar
-  const bar = document.getElementById('progressBar');
-  window.addEventListener('scroll', () => {
-    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-    bar.style.width = pct + '%';
-  });
-
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobs
+  const bar = document.getElementById('pro
