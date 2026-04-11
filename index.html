@@ -19,6 +19,24 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
+  --paper:   #F0F4FB;
+  --paper2:  #E4EAF5;
+  --paper3:  #D8E0F0;
+  --ink:     #0F1623;
+  --ink2:    #2D3A52;
+  --ink3:    #5A6A85;
+  --ink4:    #8C9AB5;
+  --blue:    #2A52A0;
+  --blue-l:  #E0E8F8;
+  --blue-m:  #5B7EC9;
+  --border:  rgba(15,22,35,0.09);
+  --border2: rgba(15,22,35,0.05);
+  --serif:   'Fraunces', Georgia, serif;
+  --lora:    'Fraunces', Georgia, serif;
+  --sans:    'Manrope', system-ui, sans-serif;
+  --ease:    cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.dark {
   --paper:   #1E2433;
   --paper2:  #252B3B;
   --paper3:  #2D3448;
@@ -31,11 +49,8 @@
   --blue-m:  #5B7EC9;
   --border:  rgba(226,232,244,0.08);
   --border2: rgba(226,232,244,0.04);
-  --serif:   'Fraunces', Georgia, serif;
-  --lora:    'Fraunces', Georgia, serif;
-  --sans:    'Manrope', system-ui, sans-serif;
-  --ease:    cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 
 
@@ -53,29 +68,13 @@ body {
   font-size: 15px;
   letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
-  cursor: none;
+  cursor: auto;
   overflow-x: hidden;
 }
 
 /* CUSTOM CURSOR */
-.cursor {
-  position: fixed; pointer-events: none; z-index: 9999;
-  width: 10px; height: 10px;
-  background: var(--blue);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s var(--ease), width 0.3s var(--ease), height 0.3s var(--ease), opacity 0.3s;
-  mix-blend-mode: screen;
-}
-.cursor-ring {
-  position: fixed; pointer-events: none; z-index: 9998;
-  width: 36px; height: 36px;
-  border: 1px solid var(--blue);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.18s var(--ease), width 0.3s var(--ease), height 0.3s var(--ease), opacity 0.3s;
-  opacity: 0.5;
-}
+.cursor { display: none; }
+.cursor-ring { display: none; }
 body:hover .cursor { opacity: 1; }
 a:hover ~ .cursor, button:hover ~ .cursor { width: 18px; height: 18px; }
 
@@ -534,6 +533,10 @@ footer {
   <div class="sidebar-footer">
     <a href="https://github.com/anirudh-rs" target="_blank" class="sidebar-link">↗ GitHub</a>
     <a href="https://linkedin.com/in/anirudhragh7/" target="_blank" class="sidebar-link">↗ LinkedIn</a>
+    <button onclick="(function(){var b=document.body;b.classList.toggle('dark');localStorage.setItem('theme',b.classList.contains('dark')?'dark':'light');var l=document.getElementById('tl');l.textContent=b.classList.contains('dark')?'Light mode':'Dark mode';})()" style="margin-top:0.75rem; padding-top:0.75rem; border-top:0.5px solid var(--border); background:none; border-left:none; border-right:none; border-bottom:none; width:100%; text-align:left; cursor:pointer; font-family:var(--sans); font-size:11.5px; color:var(--ink4); display:flex; align-items:center; gap:8px;">
+      <span style="font-size:14px;">☀</span>
+      <span id="tl">Dark mode</span>
+    </button>
   </div>
 </aside>
 
@@ -569,12 +572,6 @@ footer {
           <div class="aside-card-sub">BNM Institute of Technology, Bengaluru</div>
           <div class="aside-card-year">Graduated August 2020</div>
         </div>
-        <div class="availability reveal reveal-delay-2">
-          <div class="avail-dot"></div>
-          <div>
-            <div class="avail-text">Available for hire</div>
-            <div class="avail-sub">Open to full-time analyst &amp; data science roles</div>
-          </div>
         </div>
         <div class="aside-card reveal reveal-delay-3" style="background: var(--paper);">
           <div class="aside-card-label">Find me on</div>
@@ -582,7 +579,7 @@ footer {
             <a href="https://github.com/anirudh-rs" target="_blank" style="font-size:13px; color:var(--ink2); text-decoration:none; display:flex; align-items:center; gap:8px;">
               <span style="color:var(--blue);">↗</span> github.com/anirudh-rs
             </a>
-            <a href="mailto:anirudh.raghavendra7@gmail.com" style="font-size:13px; color:var(--ink2); text-decoration:none; display:flex; align-items:center; gap:8px;"><span style="color:var(--blue);">↗</span> anirudh.raghavendra7@gmail.com</a>
+            <a href="/cdn-cgi/l/email-protection#a4c5cacdd6d1c0cc8ad6c5c3ccc5d2c1cac0d6c593e4c3c9c5cdc88ac7cbc9" style="font-size:13px; color:var(--ink2); text-decoration:none; display:flex; align-items:center; gap:8px;"><span style="color:var(--blue);">↗</span> <span class="__cf_email__" data-cfemail="86e7e8eff4f3e2eea8f4e7e1eee7f0e3e8e2f4e7b1c6e1ebe7efeaa8e5e9eb">[email&#160;protected]</span></a>
           </div>
         </div>
       </div>
@@ -791,7 +788,7 @@ footer {
         <p style="font-size:13.5px; color:var(--ink3); line-height:1.8;">Based in Irvine, CA · Open to relocation<br>Available immediately</p>
       </div>
       <div class="contact-right reveal reveal-delay-1">
-        <a href="mailto:anirudh.raghavendra7@gmail.com" class="contact-link"><span class="contact-icon">✉</span><div class="contact-text"><div class="contact-label">Email</div><div class="contact-value">anirudh.raghavendra7@gmail.com</div></div><span class="contact-arrow">↗</span></a>
+        <a href="/cdn-cgi/l/email-protection#24454a4d5651404c0a5645434c4552414a40564513644349454d480a474b49" class="contact-link"><span class="contact-icon">✉</span><div class="contact-text"><div class="contact-label">Email</div><div class="contact-value"><span class="__cf_email__" data-cfemail="1776797e6562737f396576707f766172797365762057707a767e7b3974787a">[email&#160;protected]</span></div></div><span class="contact-arrow">↗</span></a>
         <a href="https://linkedin.com/in/anirudhragh7/" target="_blank" class="contact-link">
           <span class="contact-icon">in</span>
           <div class="contact-text">
@@ -816,9 +813,7 @@ footer {
 <div style="max-width:1100px; margin:0 auto; border-top: 0.5px solid var(--border);"></div>
 <footer>
   <span class="footer-text">© 2026 Anirudh Raghavendra</span>
-  <a href="https://github.com/anirudh-rs" target="_blank" class="footer-github">
-    View on GitHub &nbsp;↗
-  </a>
+
 </footer>
 </div><!-- end main-content -->
 
@@ -849,12 +844,4 @@ footer {
   });
 
   // Sidebar active state
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.sidebar-nav a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.getAttribute('id'); });
-    navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
-  });
-
-  // Mobile sidebar t
+  cons
