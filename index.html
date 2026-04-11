@@ -37,6 +37,25 @@
   --ease:    cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+[data-theme="dark"] {
+  --paper:   #0D1117;
+  --paper2:  #161B27;
+  --paper3:  #1E2536;
+  --ink:     #E8EDF5;
+  --ink2:    #B8C4D8;
+  --ink3:    #7A8BA8;
+  --ink4:    #4A5A72;
+  --blue:    #6B9FE4;
+  --blue-l:  #1A2A45;
+  --blue-m:  #4A7EC9;
+  --border:  rgba(232,237,245,0.08);
+  --border2: rgba(232,237,245,0.04);
+}
+
+*, *::before, *::after {
+  transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
 html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
@@ -123,6 +142,29 @@ a:hover ~ .cursor, button:hover ~ .cursor { width: 18px; height: 18px; }
   transition: color 0.2s; display: flex; align-items: center; gap: 6px;
 }
 .sidebar-link:hover { color: var(--blue); }
+.theme-toggle {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 0.75rem; padding-top: 0.75rem;
+  border-top: 0.5px solid var(--border);
+  cursor: pointer; background: none; border-left: none;
+  border-right: none; border-bottom: none;
+  width: 100%; text-align: left;
+}
+.theme-toggle-track {
+  width: 36px; height: 20px; border-radius: 10px;
+  background: var(--blue-l); border: 1px solid var(--border);
+  position: relative; flex-shrink: 0; transition: background 0.3s;
+}
+.theme-toggle-thumb {
+  position: absolute; top: 2px; left: 2px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--blue); transition: transform 0.3s var(--ease);
+}
+[data-theme="dark"] .theme-toggle-thumb { transform: translateX(16px); }
+[data-theme="dark"] .theme-toggle-track { background: var(--blue-l); }
+.theme-toggle-label {
+  font-size: 11.5px; color: var(--ink4);
+}
 
 /* MAIN CONTENT shifted right */
 .main-content { margin-left: 220px; }
@@ -528,6 +570,12 @@ footer {
     <a href="https://github.com/anirudh-rs" target="_blank" class="sidebar-link">↗ GitHub</a>
     <a href="https://linkedin.com/in/anirudhragh7/" target="_blank" class="sidebar-link">↗ LinkedIn</a>
     <a href="mailto:anirudh.raghavendra7@gmail.com" class="sidebar-link">↗ Email</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <div class="theme-toggle-track">
+        <div class="theme-toggle-thumb"></div>
+      </div>
+      <span class="theme-toggle-label" id="themeLabel">Light mode</span>
+    </button>
   </div>
 </aside>
 
@@ -826,7 +874,21 @@ footer {
 </footer>
 </div><!-- end main-content -->
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Theme toggle
+  const html = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const themeLabel = document.getElementById('themeLabel');
+  const saved = localStorage.getItem('theme') || 'light';
+  html.setAttribute('data-theme', saved);
+  themeLabel.textContent = saved === 'dark' ? 'Dark mode' : 'Light mode';
+  themeToggle.addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    themeLabel.textContent = next === 'dark' ? 'Dark mode' : 'Light mode';
+  });
+
   // Cursor
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
@@ -851,17 +913,13 @@ footer {
     bar.style.width = pct + '%';
   });
 
-  // Sidebar active state on scroll
+  // Sidebar active state
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.sidebar-nav a');
   window.addEventListener('scroll', () => {
     let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 200) current = s.getAttribute('id');
-    });
-    navLinks.forEach(a => {
-      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-    });
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.getAttribute('id'); });
+    navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
   });
 
   // Mobile sidebar toggle
