@@ -19,38 +19,25 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --paper:   #F4F6FB;
-  --paper2:  #EAEef7;
-  --paper3:  #DDE3F2;
-  --ink:     #0F1623;
-  --ink2:    #2D3A52;
-  --ink3:    #5A6A85;
-  --ink4:    #8C9AB5;
-  --blue:    #2A52A0;
-  --blue-l:  #E0E8F8;
+  --paper:   #1E2433;
+  --paper2:  #252B3B;
+  --paper3:  #2D3448;
+  --ink:     #E2E8F4;
+  --ink2:    #B0BCCE;
+  --ink3:    #7A8BA8;
+  --ink4:    #4A5A72;
+  --blue:    #7AAEE8;
+  --blue-l:  #243050;
   --blue-m:  #5B7EC9;
-  --border:  rgba(15,22,35,0.09);
-  --border2: rgba(15,22,35,0.05);
+  --border:  rgba(226,232,244,0.08);
+  --border2: rgba(226,232,244,0.04);
   --serif:   'Fraunces', Georgia, serif;
   --lora:    'Fraunces', Georgia, serif;
   --sans:    'Manrope', system-ui, sans-serif;
   --ease:    cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-[data-theme="dark"] {
-  --paper:   #0D1117;
-  --paper2:  #161B27;
-  --paper3:  #1E2536;
-  --ink:     #E8EDF5;
-  --ink2:    #B8C4D8;
-  --ink3:    #7A8BA8;
-  --ink4:    #4A5A72;
-  --blue:    #6B9FE4;
-  --blue-l:  #1A2A45;
-  --blue-m:  #4A7EC9;
-  --border:  rgba(232,237,245,0.08);
-  --border2: rgba(232,237,245,0.04);
-}
+
 
 *, *::before, *::after {
   transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
@@ -78,7 +65,7 @@ body {
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: transform 0.1s var(--ease), width 0.3s var(--ease), height 0.3s var(--ease), opacity 0.3s;
-  mix-blend-mode: multiply;
+  mix-blend-mode: screen;
 }
 .cursor-ring {
   position: fixed; pointer-events: none; z-index: 9998;
@@ -115,10 +102,7 @@ a:hover ~ .cursor, button:hover ~ .cursor { width: 18px; height: 18px; }
   color: var(--ink); line-height: 1.3;
   margin-bottom: 0.35rem;
 }
-.sidebar-role {
-  font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--ink4); margin-bottom: 2rem;
-}
+
 .sidebar-nav { display: flex; flex-direction: column; gap: 2px; flex: 1; }
 .sidebar-nav a {
   font-size: 12.5px; color: var(--ink3); text-decoration: none;
@@ -143,29 +127,10 @@ a:hover ~ .cursor, button:hover ~ .cursor { width: 18px; height: 18px; }
   transition: color 0.2s; display: flex; align-items: center; gap: 6px;
 }
 .sidebar-link:hover { color: var(--blue); }
-.theme-toggle {
-  display: flex; align-items: center; gap: 8px;
-  margin-top: 0.75rem; padding-top: 0.75rem;
-  border-top: 0.5px solid var(--border);
-  cursor: pointer; background: none; border-left: none;
-  border-right: none; border-bottom: none;
-  width: 100%; text-align: left;
-}
-.theme-toggle-track {
-  width: 36px; height: 20px; border-radius: 10px;
-  background: var(--blue-l); border: 1px solid var(--border);
-  position: relative; flex-shrink: 0; transition: background 0.3s;
-}
-.theme-toggle-thumb {
-  position: absolute; top: 2px; left: 2px;
-  width: 14px; height: 14px; border-radius: 50%;
-  background: var(--blue); transition: transform 0.3s var(--ease);
-}
-[data-theme="dark"] .theme-toggle-thumb { transform: translateX(16px); }
-[data-theme="dark"] .theme-toggle-track { background: var(--blue-l); }
-.theme-toggle-label {
-  font-size: 11.5px; color: var(--ink4);
-}
+
+
+
+
 
 /* MAIN CONTENT shifted right */
 .main-content { margin-left: 220px; }
@@ -569,12 +534,6 @@ footer {
   <div class="sidebar-footer">
     <a href="https://github.com/anirudh-rs" target="_blank" class="sidebar-link">↗ GitHub</a>
     <a href="https://linkedin.com/in/anirudhragh7/" target="_blank" class="sidebar-link">↗ LinkedIn</a>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-      <div class="theme-toggle-track">
-        <div class="theme-toggle-thumb"></div>
-      </div>
-      <span class="theme-toggle-label" id="themeLabel">Light mode</span>
-    </button>
   </div>
 </aside>
 
@@ -864,19 +823,6 @@ footer {
 </div><!-- end main-content -->
 
 <script>
-  // Theme toggle
-  const html = document.documentElement;
-  const themeToggle = document.getElementById('themeToggle');
-  const themeLabel = document.getElementById('themeLabel');
-  const saved = localStorage.getItem('theme') || 'light';
-  html.setAttribute('data-theme', saved);
-  themeLabel.textContent = saved === 'dark' ? 'Dark mode' : 'Light mode';
-  themeToggle.addEventListener('click', () => {
-    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    themeLabel.textContent = next === 'dark' ? 'Dark mode' : 'Light mode';
-  });
 
   // Cursor
   const cursor = document.getElementById('cursor');
@@ -911,13 +857,4 @@ footer {
     navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
   });
 
-  // Mobile sidebar toggle
-  const sidebarToggle = document.getElementById('sidebarToggle');
-  const sidebar = document.getElementById('sidebar');
-  sidebarToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
-  document.querySelectorAll('.sidebar-nav a').forEach(a => {
-    a.addEventListener('click', () => sidebar.classList.remove('open'));
-  });
-
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal'
+  // Mobile sidebar t
