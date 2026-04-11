@@ -559,7 +559,6 @@ footer {
 <!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-name">Anirudh<br>Raghavendra</div>
-  <div class="sidebar-role">Data Analyst &amp; Scientist</div>
   <nav class="sidebar-nav">
     <a href="#about">About</a>
     <a href="#projects">Work</a>
@@ -921,14 +920,4 @@ footer {
   });
 
   // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.08 });
-  reveals.forEach(el => observer.observe(el));
-
-  // Smooth anchor scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      e.preventDefault();
-      const t
+  const reveals = document.querySelectorAll('.reveal'
