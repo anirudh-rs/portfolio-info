@@ -120,19 +120,7 @@ nav.scrolled .nav-name { opacity: 1; }
   background: var(--paper);
   min-height: 100vh;
 }
-.opening-hero {
-  display: flex; flex-direction: row; align-items: center; gap: 3rem; flex-wrap: wrap;
-}
-.profile-photo {
-  width: 160px; height: 160px;
-  border-radius: 50%;
-  object-fit: cover; object-position: center 10%;
-  border: 3px solid var(--blue-l);
-  flex-shrink: 0;
-  display: block;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-}
+.opening-hero { display: block; }
 .opening-eyebrow {
   font-size: 0.85rem;
   color: var(--blue); margin-bottom: 1.5rem;
@@ -518,7 +506,6 @@ footer {
   <div class="section-wrap" style="padding-top: 12rem;">
 
     <div class="opening-hero">
-      <img src="profile.jpg" alt="Anirudh Raghavendra" class="profile-photo reveal" />
       <div>
         <h1 class="opening-name reveal">Anirudh<br><span>Raghavendra</span></h1>
         <div class="opening-line reveal"></div>
