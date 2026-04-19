@@ -529,12 +529,13 @@ footer {
   footer { flex-direction: column; gap: 8px; text-align: center; }
 }
 </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K221NZQ861"></script>
+<!-- Google Analytics — replace G-XXXXXXXXXX with your Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-K221NZQ861');
+  gtag('config', 'G-XXXXXXXXXX');
 </script>
 
 </head>
@@ -739,17 +740,19 @@ footer {
       <div class="project-num">06</div>
       <div class="project-body">
         <div class="project-category">AI · RAG · NLP</div>
-        <div class="project-title">RAG-Based Document Assistant</div>
-        <p class="project-desc">Upload any PDF and ask it questions in plain language. The assistant retrieves the most relevant passages using vector embeddings and generates accurate, grounded answers with source citations — no hallucinations, no guesswork.</p>
-        <div class="project-impact">Goes beyond keyword search: understands context, surfaces exact passages, and grounds every answer in the source material. Useful for research, legal documents, or any knowledge-heavy domain.</div>
+        <div class="project-title">PL 24/25 Assist — Premier League RAG Assistant</div>
+        <p class="project-desc">A natural language assistant for the 2024/25 Premier League season. Ask anything about any of the 20 clubs — results, standings, managers, stadiums, records — and get a direct answer with source citations. Built on a RAG pipeline with 21 embedded Wikipedia documents, query expansion, source prioritisation, and sliding window conversation memory for natural follow-up questions.</p>
+        <div class="project-impact">Hallucination is prevented by design — GPT-4o receives strictly labelled, retrieved context and a constrained prompt. Includes a club focus mode that narrows retrieval to a selected team, and automatic standings injection for position and comparison questions.</div>
         <div class="project-tags">
           <span class="project-tag">LangChain</span>
           <span class="project-tag">ChromaDB</span>
-          <span class="project-tag">OpenAI</span>
+          <span class="project-tag">GPT-4o</span>
           <span class="project-tag">Streamlit</span>
           <span class="project-tag">Python</span>
         </div>
-        <span class="project-soon">⏳ &nbsp;Live demo coming soon</span>
+        <a href="https://rag-document-assistant-ralxaxcpjy4pzwmt3phjoe.streamlit.app/" target="_blank" class="project-live">
+          <span class="project-live-dot"></span> Check it live — Streamlit
+        </a>
       </div>
       <div class="project-arrow">↗</div>
     </div>
