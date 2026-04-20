@@ -634,7 +634,7 @@ footer {
   <div class="section-wrap">
     <div class="section-label reveal">Projects</div>
     <h2 class="reveal">Things I've built</h2>
-    <p class="projects-intro reveal">Seven projects, each solving a real problem — from statistical experimentation to AI-powered assistants. Four are live and ready to explore.</p>
+    <p class="projects-intro reveal">Eight projects, each solving a real problem — from statistical experimentation to ML-powered flight delay prediction. Five are live and ready to explore.</p>
 
     <div class="project-item reveal">
       <div class="project-num">01</div>
@@ -720,6 +720,28 @@ footer {
     <div class="project-item reveal">
       <div class="project-num">05</div>
       <div class="project-body">
+        <div class="project-category">ML · Data Engineering · Tableau</div>
+        <div class="project-title">US Flight Delay Prediction System</div>
+        <p class="project-desc">End-to-end ML pipeline predicting domestic flight delays using 1.86 million real BTS flight records across 2019, 2022, and 2023. Built a Python data pipeline that cleans, engineers features, and loads data into PostgreSQL — enriched with real historical weather data from the Open-Meteo API across 142 US airports, covering 62.5% of all flights. Integrates three data sources: BTS flight records, OurAirports coordinate database, and Open-Meteo weather API.</p>
+        <div class="project-impact">Two XGBoost models trained: a binary delay classifier (ROC-AUC 0.72) and a four-bracket delay severity classifier (Weighted F1 0.60). SHAP explainability identified departure hour, route delay history, and airline reliability as the strongest predictors. Full project on GitHub with documented setup and reproducible pipeline scripts.</div>
+        <div class="project-tags">
+          <span class="project-tag">XGBoost</span>
+          <span class="project-tag">SHAP</span>
+          <span class="project-tag">PostgreSQL</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Open-Meteo API</span>
+          <span class="project-tag">Tableau Public</span>
+        </div>
+        <a href="https://public.tableau.com/app/profile/anirudh.raghavendra/viz/USFlightDelayPredictionSystem/AirlinePerformanceDelayTrends" target="_blank" class="project-live">
+          <span class="project-live-dot"></span> View dashboard — Tableau Public
+        </a>
+      </div>
+      <div class="project-arrow">&#8599;</div>
+    </div>
+
+    <div class="project-item reveal">
+      <div class="project-num">06</div>
+      <div class="project-body">
         <div class="project-category">AI · RAG · NLP</div>
         <div class="project-title">PL 24/25 Assist — Premier League RAG Assistant</div>
         <p class="project-desc">A natural language assistant for the 2024/25 Premier League season. Ask anything about any of the 20 clubs — results, standings, managers, stadiums, records — and get a direct answer with source citations. Built on a RAG pipeline with 21 embedded Wikipedia documents, query expansion, source prioritisation, and sliding window conversation memory for natural follow-up questions.</p>
@@ -739,7 +761,7 @@ footer {
     </div>
 
     <div class="project-item reveal">
-      <div class="project-num">06</div>
+      <div class="project-num">07</div>
       <div class="project-body">
         <div class="project-category">AI · Audio · ML</div>
         <div class="project-title">AI Stem Separation &amp; Remix Tool</div>
@@ -759,7 +781,7 @@ footer {
     </div>
 
     <div class="project-item reveal">
-      <div class="project-num">07</div>
+      <div class="project-num">08</div>
       <div class="project-body">
         <div class="project-category">ML · HR Analytics · Dashboard</div>
         <div class="project-title">Employee Attrition &amp; HR Analytics Dashboard</div>
