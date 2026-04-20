@@ -634,7 +634,7 @@ footer {
   <div class="section-wrap">
     <div class="section-label reveal">Projects</div>
     <h2 class="reveal">Things I've built</h2>
-    <p class="projects-intro reveal">Six projects, each solving a real problem — starting with customer segmentation and smart home automation. Three are live and ready to explore.</p>
+    <p class="projects-intro reveal">Seven projects, each solving a real problem — from statistical experimentation to AI-powered assistants. Four are live and ready to explore.</p>
 
     <div class="project-item reveal">
       <div class="project-num">01</div>
@@ -679,6 +679,27 @@ footer {
     <div class="project-item reveal">
       <div class="project-num">03</div>
       <div class="project-body">
+        <div class="project-category">SQL · Statistics · A/B Testing</div>
+        <div class="project-title">A/B Test Results Analysis</div>
+        <p class="project-desc">A statistical experimentation framework built in pure SQL, processing 882,000+ rows across two experiments. Covers conversion rate analysis, Z-score and p-value significance testing, 95% confidence intervals with overlap detection, ad frequency segmentation across four exposure tiers, and day-of-week and hour-of-day breakdowns — all culminating in an executive summary report that flags winners and losers.</p>
+        <div class="project-impact">Key findings: the new landing page showed no significant improvement — do not ship (z=1.24, p=0.39). Ads drove a 43% conversion uplift over PSA content (z=7.37, p≈0.00). Users with 100+ ad exposures converted at 52x the rate of low-exposure users. Peak conversion times are Monday–Tuesday, 2pm–4pm.</div>
+        <div class="project-tags">
+          <span class="project-tag">PostgreSQL</span>
+          <span class="project-tag">pgAdmin</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Tableau Public</span>
+          <span class="project-tag">Statistics</span>
+        </div>
+        <a href="https://public.tableau.com/app/profile/anirudh.raghavendra/viz/ABTestResultsAnalysis_17766967604600/ABTestAnalysis" target="_blank" class="project-live">
+          <span class="project-live-dot"></span> View dashboard — Tableau Public
+        </a>
+      </div>
+      <div class="project-arrow">↗</div>
+    </div>
+
+    <div class="project-item reveal">
+      <div class="project-num">04</div>
+      <div class="project-body">
         <div class="project-category">ML · IoT · Automation</div>
         <div class="project-title">AI Smart Home Automation System</div>
         <p class="project-desc">A system that observes your habits and automatically controls lights and thermostats to optimise comfort and reduce energy usage — without you having to program a single rule.</p>
@@ -697,7 +718,28 @@ footer {
     </div>
 
     <div class="project-item reveal">
-      <div class="project-num">04</div>
+      <div class="project-num">05</div>
+      <div class="project-body">
+        <div class="project-category">AI · RAG · NLP</div>
+        <div class="project-title">PL 24/25 Assist — Premier League RAG Assistant</div>
+        <p class="project-desc">A natural language assistant for the 2024/25 Premier League season. Ask anything about any of the 20 clubs — results, standings, managers, stadiums, records — and get a direct answer with source citations. Built on a RAG pipeline with 21 embedded Wikipedia documents, query expansion, source prioritisation, and sliding window conversation memory for natural follow-up questions.</p>
+        <div class="project-impact">Hallucination is prevented by design — GPT-4o receives strictly labelled, retrieved context and a constrained prompt. Includes a club focus mode that narrows retrieval to a selected team, and automatic standings injection for position and comparison questions.</div>
+        <div class="project-tags">
+          <span class="project-tag">LangChain</span>
+          <span class="project-tag">ChromaDB</span>
+          <span class="project-tag">GPT-4o</span>
+          <span class="project-tag">Streamlit</span>
+          <span class="project-tag">Python</span>
+        </div>
+        <a href="https://rag-document-assistant-ralxaxcpjy4pzwmt3phjoe.streamlit.app/" target="_blank" class="project-live">
+          <span class="project-live-dot"></span> Check it live — Streamlit
+        </a>
+      </div>
+      <div class="project-arrow">↗</div>
+    </div>
+
+    <div class="project-item reveal">
+      <div class="project-num">06</div>
       <div class="project-body">
         <div class="project-category">AI · Audio · ML</div>
         <div class="project-title">AI Stem Separation &amp; Remix Tool</div>
@@ -717,7 +759,7 @@ footer {
     </div>
 
     <div class="project-item reveal">
-      <div class="project-num">05</div>
+      <div class="project-num">07</div>
       <div class="project-body">
         <div class="project-category">ML · HR Analytics · Dashboard</div>
         <div class="project-title">Employee Attrition &amp; HR Analytics Dashboard</div>
@@ -731,27 +773,6 @@ footer {
           <span class="project-tag">IBM HR Dataset</span>
         </div>
         <span class="project-soon">⏳ &nbsp;Live demo coming soon</span>
-      </div>
-      <div class="project-arrow">↗</div>
-    </div>
-
-    <div class="project-item reveal">
-      <div class="project-num">06</div>
-      <div class="project-body">
-        <div class="project-category">AI · RAG · NLP</div>
-        <div class="project-title">PL 24/25 Assist — Premier League RAG Assistant</div>
-        <p class="project-desc">A natural language assistant for the 2024/25 Premier League season. Ask anything about any of the 20 clubs — results, standings, managers, stadiums, records — and get a direct answer with source citations. Built on a RAG pipeline with 21 embedded Wikipedia documents, query expansion, source prioritisation, and sliding window conversation memory for natural follow-up questions.</p>
-        <div class="project-impact">Hallucination is prevented by design — GPT-4o receives strictly labelled, retrieved context and a constrained prompt. Includes a club focus mode that narrows retrieval to a selected team, and automatic standings injection for position and comparison questions.</div>
-        <div class="project-tags">
-          <span class="project-tag">LangChain</span>
-          <span class="project-tag">ChromaDB</span>
-          <span class="project-tag">GPT-4o</span>
-          <span class="project-tag">Streamlit</span>
-          <span class="project-tag">Python</span>
-        </div>
-        <a href="https://rag-document-assistant-ralxaxcpjy4pzwmt3phjoe.streamlit.app/" target="_blank" class="project-live">
-          <span class="project-live-dot"></span> Check it live — Streamlit
-        </a>
       </div>
       <div class="project-arrow">↗</div>
     </div>
