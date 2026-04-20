@@ -634,7 +634,7 @@ footer {
   <div class="section-wrap">
     <div class="section-label reveal">Projects</div>
     <h2 class="reveal">Things I've built</h2>
-    <p class="projects-intro reveal">Eight projects, each solving a real problem — from statistical experimentation to ML-powered flight delay prediction. Five are live and ready to explore.</p>
+    <p class="projects-intro reveal">Eight projects, each solving a real problem — from statistical experimentation to ML-powered prediction. Six are live and ready to explore.</p>
 
     <div class="project-item reveal">
       <div class="project-num">01</div>
@@ -742,6 +742,28 @@ footer {
     <div class="project-item reveal">
       <div class="project-num">06</div>
       <div class="project-body">
+        <div class="project-category">ML · HR Analytics · Dashboard</div>
+        <div class="project-title">Employee Attrition Intelligence Dashboard</div>
+        <p class="project-desc">End-to-end HR analytics platform that predicts which employees are likely to leave, explains the reasons behind each prediction, and presents findings in an interactive dashboard built for non-technical HR teams. Three datasets merged (IBM HR Analytics, HRDataset v14, Employee Burnout) into a single enriched master dataset of 1,470 employees across 44 features — including engineered signals like burnout pressure index, promotion stagnation, and career velocity.</p>
+        <div class="project-impact">XGBoost trained with SMOTE to handle class imbalance, achieving ROC-AUC 0.78 with threshold tuning to optimise recall for at-risk employees. SHAP surfaced stock option level and overtime as the strongest attrition drivers. The Streamlit dashboard covers five tabs: risk distribution, a flagged employee register with CSV export, SHAP explainability charts, department-level alerts, and a live benchmark tab pulling real national turnover data from the US Bureau of Labor Statistics API.</div>
+        <div class="project-tags">
+          <span class="project-tag">XGBoost</span>
+          <span class="project-tag">SHAP</span>
+          <span class="project-tag">SMOTE</span>
+          <span class="project-tag">Streamlit</span>
+          <span class="project-tag">Tableau Public</span>
+          <span class="project-tag">BLS API</span>
+        </div>
+        <a href="https://hr-attrition-analytics-dashboard.streamlit.app/" target="_blank" class="project-live">
+          <span class="project-live-dot"></span> Check it live — Streamlit
+        </a>
+      </div>
+      <div class="project-arrow">&#8599;</div>
+    </div>
+
+    <div class="project-item reveal">
+      <div class="project-num">07</div>
+      <div class="project-body">
         <div class="project-category">AI · RAG · NLP</div>
         <div class="project-title">PL 24/25 Assist — Premier League RAG Assistant</div>
         <p class="project-desc">A natural language assistant for the 2024/25 Premier League season. Ask anything about any of the 20 clubs — results, standings, managers, stadiums, records — and get a direct answer with source citations. Built on a RAG pipeline with 21 embedded Wikipedia documents, query expansion, source prioritisation, and sliding window conversation memory for natural follow-up questions.</p>
@@ -761,7 +783,7 @@ footer {
     </div>
 
     <div class="project-item reveal">
-      <div class="project-num">07</div>
+      <div class="project-num">08</div>
       <div class="project-body">
         <div class="project-category">AI · Audio · ML</div>
         <div class="project-title">AI Stem Separation &amp; Remix Tool</div>
@@ -776,25 +798,6 @@ footer {
         <a href="https://huggingface.co/spaces/anirudh-rs/ai-stem-separator" target="_blank" class="project-live">
           <span class="project-live-dot"></span> Check it live — Hugging Face
         </a>
-      </div>
-      <div class="project-arrow">↗</div>
-    </div>
-
-    <div class="project-item reveal">
-      <div class="project-num">08</div>
-      <div class="project-body">
-        <div class="project-category">ML · HR Analytics · Dashboard</div>
-        <div class="project-title">Employee Attrition &amp; HR Analytics Dashboard</div>
-        <p class="project-desc">Predicts which employees are at risk of leaving and — crucially — explains why, using SHAP values to surface the specific factors driving each prediction. Presented in an interactive dashboard for HR teams.</p>
-        <div class="project-impact">SHAP explainability transforms a black-box model into actionable intelligence. HR teams don't just see who might leave — they understand the drivers well enough to intervene early.</div>
-        <div class="project-tags">
-          <span class="project-tag">XGBoost</span>
-          <span class="project-tag">SHAP</span>
-          <span class="project-tag">Plotly</span>
-          <span class="project-tag">Streamlit</span>
-          <span class="project-tag">IBM HR Dataset</span>
-        </div>
-        <span class="project-soon">⏳ &nbsp;Live demo coming soon</span>
       </div>
       <div class="project-arrow">↗</div>
     </div>
