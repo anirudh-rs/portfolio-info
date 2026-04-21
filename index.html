@@ -529,12 +529,13 @@ footer {
   footer { flex-direction: column; gap: 8px; text-align: center; }
 }
 </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K221NZQ861"></script>
+<!-- Google Analytics — replace G-XXXXXXXXXX with your Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-K221NZQ861');
+  gtag('config', 'G-XXXXXXXXXX');
 </script>
 
 </head>
@@ -634,7 +635,7 @@ footer {
   <div class="section-wrap">
     <div class="section-label reveal">Projects</div>
     <h2 class="reveal">Things I've built</h2>
-    <p class="projects-intro reveal">Eight projects, each solving a real problem — from statistical experimentation to ML-powered prediction. Six are live and ready to explore.</p>
+    <p class="projects-intro reveal">Nine projects, each solving a real problem — from statistical experimentation to competitive Pokemon meta analysis. Six are live and ready to explore.</p>
 
     <div class="project-item reveal">
       <div class="project-num">01</div>
@@ -679,6 +680,28 @@ footer {
     <div class="project-item reveal">
       <div class="project-num">03</div>
       <div class="project-body">
+        <div class="project-category">ML · Data Science · Streamlit</div>
+        <div class="project-title">PokeMeta Analyser — Competitive Pokemon Meta Shift Tracker</div>
+        <p class="project-desc">End-to-end data science project analysing how the Pokemon competitive meta has shifted across all 9 generations (1996–2023), covering 1,194 Pokemon and 606 Smogon-tiered entries. Engineered a pipeline across 3 datasets, deriving 78 features per Pokemon including stat ratios, offensive/defensive splits, speed tiers, and 18-type one-hot encodings. Deployed as a 9-tab interactive Streamlit dashboard with a Pokemon-themed UI including sprite decorations, type badge icons, a Type Matchup Defender popup, SHAP waterfall charts, and filterable prediction tables.</p>
+        <div class="project-impact">XGBoost binary viability classifier trained on Gens 1–7 achieved ROC-AUC 0.932 on a completely unseen Gen 8 holdout. Gen 9 inference on 112 Scarlet/Violet Pokemon with zero training data correctly identified Iron Valiant, Flutter Mane, Gholdengo, and Koraidon as top-tier at 99%+ confidence. SHAP revealed BST and Speed as the top two viability predictors — legendary status alone doesn't crack the top 20 features.</div>
+        <div class="project-tags">
+          <span class="project-tag">XGBoost</span>
+          <span class="project-tag">SHAP</span>
+          <span class="project-tag">Streamlit</span>
+          <span class="project-tag">Plotly</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">scikit-learn</span>
+        </div>
+        <a href="https://pokemon-meta-tracker.streamlit.app/" target="_blank" class="project-live">
+          <span class="project-live-dot"></span> Check it live — Streamlit
+        </a>
+      </div>
+      <div class="project-arrow">&#8599;</div>
+    </div>
+
+    <div class="project-item reveal">
+      <div class="project-num">04</div>
+      <div class="project-body">
         <div class="project-category">SQL · Statistics · A/B Testing</div>
         <div class="project-title">A/B Test Results Analysis</div>
         <p class="project-desc">A statistical experimentation framework built in pure SQL, processing 882,000+ rows across two experiments. Covers conversion rate analysis, Z-score and p-value significance testing, 95% confidence intervals with overlap detection, ad frequency segmentation across four exposure tiers, and day-of-week and hour-of-day breakdowns — all culminating in an executive summary report that flags winners and losers.</p>
@@ -698,7 +721,7 @@ footer {
     </div>
 
     <div class="project-item reveal">
-      <div class="project-num">04</div>
+      <div class="project-num">05</div>
       <div class="project-body">
         <div class="project-category">ML · IoT · Automation</div>
         <div class="project-title">AI Smart Home Automation System</div>
@@ -718,7 +741,7 @@ footer {
     </div>
 
     <div class="project-item reveal">
-      <div class="project-num">05</div>
+      <div class="project-num">06</div>
       <div class="project-body">
         <div class="project-category">ML · Data Engineering · Tableau</div>
         <div class="project-title">US Flight Delay Prediction System</div>
@@ -740,7 +763,7 @@ footer {
     </div>
 
     <div class="project-item reveal">
-      <div class="project-num">06</div>
+      <div class="project-num">07</div>
       <div class="project-body">
         <div class="project-category">ML · HR Analytics · Dashboard</div>
         <div class="project-title">Employee Attrition Intelligence Dashboard</div>
@@ -762,7 +785,7 @@ footer {
     </div>
 
     <div class="project-item reveal">
-      <div class="project-num">07</div>
+      <div class="project-num">08</div>
       <div class="project-body">
         <div class="project-category">AI · RAG · NLP</div>
         <div class="project-title">PL 24/25 Assist — Premier League RAG Assistant</div>
@@ -783,7 +806,7 @@ footer {
     </div>
 
     <div class="project-item reveal">
-      <div class="project-num">08</div>
+      <div class="project-num">09</div>
       <div class="project-body">
         <div class="project-category">AI · Audio · ML</div>
         <div class="project-title">AI Stem Separation &amp; Remix Tool</div>
