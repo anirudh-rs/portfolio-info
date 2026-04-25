@@ -704,17 +704,17 @@ footer {
       <div class="project-body">
         <div class="project-category">SQL · Statistics · A/B Testing</div>
         <div class="project-title">A/B Test Results Analysis</div>
-        <p class="project-desc">A statistical experimentation framework built in pure SQL, processing 882,000+ rows across two experiments. Covers conversion rate analysis, Z-score and p-value significance testing, 95% confidence intervals with overlap detection, ad frequency segmentation across four exposure tiers, and day-of-week and hour-of-day breakdowns — all culminating in an executive summary report that flags winners and losers.</p>
-        <div class="project-impact">Key findings: the new landing page showed no significant improvement — do not ship (z=1.24, p=0.39). Ads drove a 43% conversion uplift over PSA content (z=7.37, p≈0.00). Users with 100+ ad exposures converted at 52x the rate of low-exposure users. Peak conversion times are Monday–Tuesday, 2pm–4pm.</div>
+        <p class="project-desc">A complete statistical experimentation framework built entirely in SQL — no Python or R. Analyses 882,000+ rows across two real e-commerce experiments using z-scores, p-values, and confidence intervals computed directly in PostgreSQL. Covers conversion rate analysis, ad frequency segmentation across four exposure tiers, day-of-week and hour-of-day breakdowns, and three independent validation methods — all telling the same consistent story. Three dashboards in Tableau Public covering results, ad deep dive, and test integrity.</p>
+        <div class="project-impact">Proved the new landing page should not be shipped despite 294,000 users in test (z=1.24, p=0.39). Discovered a 43% conversion uplift in the ad group over PSA (z=7.37, p≈0.00) and a 52x conversion rate difference between low and high ad exposure tiers. Caught a data quality issue affecting 1.3% of participants, and validated a perfect 50/50 traffic split across all 23 days of the experiment.</div>
         <div class="project-tags">
           <span class="project-tag">PostgreSQL</span>
           <span class="project-tag">pgAdmin</span>
-          <span class="project-tag">Python</span>
+          <span class="project-tag">Pure SQL</span>
           <span class="project-tag">Tableau Public</span>
           <span class="project-tag">Statistics</span>
         </div>
-        <a href="https://public.tableau.com/app/profile/anirudh.raghavendra/viz/ABTestResultsAnalysis_17766967604600/ABTestAnalysis" target="_blank" class="project-live">
-          <span class="project-live-dot"></span> View dashboard — Tableau Public
+        <a href="https://public.tableau.com/app/profile/anirudh.raghavendra/vizzes" target="_blank" class="project-live">
+          <span class="project-live-dot"></span> View dashboards — Tableau Public
         </a>
       </div>
       <div class="project-arrow">↗</div>
