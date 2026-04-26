@@ -634,15 +634,15 @@ footer {
   <div class="section-wrap">
     <div class="section-label reveal">Projects</div>
     <h2 class="reveal">Things I've built</h2>
-    <p class="projects-intro reveal">Ten projects, each solving a real problem — from civilisational collapse patterns to competitive Pokemon meta analysis. Six are live and ready to explore.</p>
+    <p class="projects-intro reveal">Ten projects, each solving a real problem — from civilisational collapse patterns to competitive Pokemon meta analysis. Seven are live and ready to explore.</p>
 
     <div class="project-item reveal">
       <div class="project-num">01</div>
       <div class="project-body">
         <div class="project-category">Data Science · ML · Network Analysis · Geospatial</div>
         <div class="project-title">The Collapse Signature Project</div>
-        <p class="project-desc">A data science investigation into 4,999 years of civilisational collapse — finding the hidden patterns in when, where, and why empires fall. Analyses 112 hand-curated civilisations from 3000 BCE to 1999 CE across five analytical dimensions, delivered as a three-page interactive Streamlit application with animated territorial maps, a machine learning model, and a counterfactual scenario engine. Built on 48 geospatial snapshots with real territorial boundary polygons, 187 network edges encoding conquest, pressure, and succession relationships, and kernel density estimation, permutation testing, Moran's I spatial autocorrelation, and PageRank network analysis.</p>
-        <div class="project-impact">Five findings: collapses cluster in time and it's not random (Z=6.65, p&lt;0.0001) — but the clusters are geographically dispersed, not regional contagion. 67% align with climate events or pandemics, yet more stressors correlates with slower collapse (r=+0.41). A logistic regression model achieves 92.0% leave-one-out accuracy — rise duration is the single strongest predictor (SHAP=2.05). One causal chain runs from the Neo-Babylonian Empire (626 BCE) to the Abbasid Caliphate (1258 CE) — seven civilisations, 1,884 years, one unbroken line. Counterfactual engine: Qin Dynasty with Han's institutional patience gives +81.8% survival; Napoleon with Byzantine resilience gives +93.0%.</div>
+        <p class="project-desc">A full-stack data science investigation into 112 civilisations across 4,999 years (3000 BCE to 1999 CE), asking: are civilisational collapses random, or do they follow predictable patterns in time, space, causality, and resilience? Delivered as a three-page Streamlit app — The Story (narrative findings with expandable statistical proof), History in Motion (animated GIF maps across four eras plus an interactive boundary explorer), and The Proof (full clustering stats, spatial autocorrelation, network graph, SHAP chart, counterfactual engine, and complete dataset browser).</p>
+        <div class="project-impact">Five findings confirmed: collapses cluster in time (Z=6.65, p&lt;0.0001) but Moran's I is negative — dispersed geography, shared systemic cause. 67% of clusters align with climate or pandemic events, yet more stressors correlates with slower collapse (r=+0.41). Logistic regression hits 92.0% leave-one-out accuracy — rise duration is the single strongest predictor (SHAP=2.05). One causal chain spans 1,884 years unbroken. Counterfactual engine: Qin Dynasty with Han's patience +81.8% survival; Napoleon with Byzantine resilience +93.0%. Built on 48 geospatial snapshots, 187 network edges, and 9 SHAP-driven counterfactual scenarios.</div>
         <div class="project-tags">
           <span class="project-tag">Python</span>
           <span class="project-tag">scikit-learn</span>
@@ -654,7 +654,9 @@ footer {
           <span class="project-tag">Streamlit</span>
           <span class="project-tag">SciPy</span>
         </div>
-        <span class="project-soon">⏳ &nbsp;Live demo coming soon</span>
+        <a href="https://huggingface.co/spaces/anirudh-rs/collapse-signature" target="_blank" class="project-live">
+          <span class="project-live-dot"></span> Check it live — Hugging Face
+        </a>
       </div>
       <div class="project-arrow">&#8599;</div>
     </div>
