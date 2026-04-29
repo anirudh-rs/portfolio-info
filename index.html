@@ -395,15 +395,20 @@ section:hover .chapter-marker-num { color: var(--blue-l); }
   padding: 3px 9px; transition: border-color 0.2s, color 0.2s;
 }
 .project-item:hover .project-tag { border-color: rgba(42,82,160,0.3); color: var(--ink3); }
+.project-links {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem;
+}
 .project-live {
   display: inline-flex; align-items: center; gap: 6px;
   font-size: 12px; font-weight: 500; color: var(--blue);
   border: 0.5px solid var(--blue); border-radius: 2px;
-  padding: 5px 12px; text-decoration: none; margin-top: 1rem;
+  padding: 5px 12px; text-decoration: none;
   transition: background 0.2s, color 0.2s;
   background: transparent;
 }
 .project-live:hover { background: var(--blue); color: var(--paper); }
+.project-live-ghost { color: var(--ink4); border-color: var(--border); }
+.project-live-ghost:hover { background: var(--blue-l); color: var(--blue); border-color: var(--blue); }
 .project-live-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 .project-soon {
   display: inline-flex; align-items: center; gap: 6px;
@@ -634,15 +639,15 @@ footer {
   <div class="section-wrap">
     <div class="section-label reveal">Projects</div>
     <h2 class="reveal">Things I've built</h2>
-    <p class="projects-intro reveal">Ten projects, each solving a real problem — from civilisational collapse patterns to competitive Pokemon meta analysis. Seven are live and ready to explore.</p>
+    <p class="projects-intro reveal">Eleven projects — from civilisational collapse patterns to real-time seismic intelligence. All eleven are live and ready to explore.</p>
 
     <div class="project-item reveal">
       <div class="project-num">01</div>
       <div class="project-body">
         <div class="project-category">Data Science · ML · Network Analysis · Geospatial</div>
         <div class="project-title">The Collapse Signature Project</div>
-        <p class="project-desc">A full-stack data science investigation into 112 civilisations across 4,999 years (3000 BCE to 1999 CE), asking: are civilisational collapses random, or do they follow predictable patterns in time, space, causality, and resilience? Delivered as a three-page Streamlit app — The Story (narrative findings with expandable statistical proof), History in Motion (animated GIF maps across four eras plus an interactive boundary explorer), and The Proof (full clustering stats, spatial autocorrelation, network graph, SHAP chart, counterfactual engine, and complete dataset browser).</p>
-        <div class="project-impact">Five findings confirmed: collapses cluster in time (Z=6.65, p&lt;0.0001) but Moran's I is negative — dispersed geography, shared systemic cause. 67% of clusters align with climate or pandemic events, yet more stressors correlates with slower collapse (r=+0.41). Logistic regression hits 92.0% leave-one-out accuracy — rise duration is the single strongest predictor (SHAP=2.05). One causal chain spans 1,884 years unbroken. Counterfactual engine: Qin Dynasty with Han's patience +81.8% survival; Napoleon with Byzantine resilience +93.0%. Built on 48 geospatial snapshots, 187 network edges, and 9 SHAP-driven counterfactual scenarios.</div>
+        <p class="project-desc">A full end-to-end data science pipeline investigating whether 4,999 years of civilisational collapse data reveals statistically significant patterns in timing, geography, causality, and resilience. Built on a hand-curated master dataset of 112 civilisations with 54 engineered features, drawing from CLIO-INFRA, Maddison Project, historical atlases, and primary scholarship. Delivered as a three-page Streamlit app — The Story (findings in plain English with statistical proof behind expandable sections), History in Motion (animated GIF territorial maps across 48 geospatial snapshots with an interactive boundary explorer), and The Proof (full clustering stats, spatial autocorrelation, network graph, SHAP chart, counterfactual engine, and complete dataset browser).</p>
+        <div class="project-impact">Five findings confirmed by permutation testing: collapses cluster in time (Z=6.65, p&lt;0.0001) but Moran's I is negative across all five clusters — geographically dispersed, shared systemic cause. 67% align with climate or pandemic events, yet more stressors correlates with slower collapse (r=+0.41). Logistic regression achieves 92.0% leave-one-out accuracy — rise duration is the dominant predictor (SHAP=2.05). Longest causal chain: 7 civilisations, 1,884 years unbroken. Counterfactual engine: Qin Dynasty with Han's institutional patience +81.8% survival; Napoleon with Byzantine resilience +93.0%. Network analysis surfaces Britain as highest out-degree predator and Rome as highest betweenness centrality — both validated against historical consensus without encoding them explicitly.</div>
         <div class="project-tags">
           <span class="project-tag">Python</span>
           <span class="project-tag">scikit-learn</span>
@@ -654,9 +659,10 @@ footer {
           <span class="project-tag">Streamlit</span>
           <span class="project-tag">SciPy</span>
         </div>
-        <a href="https://huggingface.co/spaces/anirudh-rs/collapse-signature" target="_blank" class="project-live">
-          <span class="project-live-dot"></span> Check it live — Hugging Face
-        </a>
+        <div class="project-links">
+          <a href="https://huggingface.co/spaces/anirudh-rs/collapse-signature" target="_blank" class="project-live"><span class="project-live-dot"></span> Check it live — Hugging Face</a>
+          <a href="https://github.com/anirudh-rs/collapse-signature" target="_blank" class="project-live project-live-ghost"><span class="project-live-dot"></span> GitHub</a>
+        </div>
       </div>
       <div class="project-arrow">&#8599;</div>
     </div>
@@ -664,50 +670,83 @@ footer {
     <div class="project-item reveal">
       <div class="project-num">02</div>
       <div class="project-body">
-        <div class="project-category">SQL · Analytics · Tableau</div>
-        <div class="project-title">Sales Funnel Drop-off Analysis</div>
-        <p class="project-desc">Processes 109 million real e-commerce events from an Eastern European electronics retailer across October–November 2019. Covers the full analyst workflow: raw data ingestion, a 5-step SQL preprocessing pipeline, funnel analysis, week-over-week trend tracking, revenue concentration, and brand efficiency — all visualised in a 3-dashboard Tableau Public report.</p>
-        <div class="project-impact">The most surprising finding: cart abandonment is not a price problem. Converted and abandoned users had virtually identical average cart prices ($209.70 vs $208.06). The barrier is engagement depth — converted users viewed 40% more products and had twice as many cart interactions before purchasing.</div>
+        <div class="project-category">Data Engineering · ML · Real-Time API · Streamlit</div>
+        <div class="project-title">Global Earthquake Risk &amp; Seismic Activity Dashboard</div>
+        <p class="project-desc">A real-time seismic risk intelligence platform with no pre-downloaded datasets — every analysis is built fresh from a live USGS Earthquake Catalog API call. The pipeline parses nested GeoJSON into a structured DataFrame, enriches each event with reverse-geocoded country and continent attribution, USGS significance score, tsunami flags, felt reports, and CDI/MMI shaking intensity. K-Means clustering identifies the top 8 global earthquake hotzones from raw coordinates with no geographic prior, overlaid on a Folium world map alongside peer-reviewed PB2002 tectonic plate boundaries. A transparent 0–100 composite risk score per country blends event count, peak magnitude, USGS significance, and shallow event percentage, with a rules-based Notable Events narrative generating plain-English bullet points grounded in verifiable data checks — no LLM, no hallucination risk.</p>
+        <div class="project-impact">Greece recorded 291% above its 90-day baseline during the April 2026 test period — flagged automatically. A Nevada M4.78 event generated 764 public felt reports despite modest magnitude, correctly surfaced as the most widely-felt event via shallow depth scoring. K-Means independently identified the Ring of Fire's major subduction zones matching known seismological boundaries with no geographic input. The Turkey-Syria February 2023 window surfaces a textbook aftershock signature: M7.8 spike on February 6 followed by exponential decay with 570+ aftershocks in 24 hours visible in the daily activity chart. Statistical guardrails suppress misleading deviations when baseline sample sizes are too small — the dashboard is honest about when its own outputs can't be trusted.</div>
         <div class="project-tags">
-          <span class="project-tag">PostgreSQL 18.3</span>
-          <span class="project-tag">pgAdmin</span>
-          <span class="project-tag">CTEs</span>
-          <span class="project-tag">Window Functions</span>
-          <span class="project-tag">Tableau Public</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Streamlit</span>
+          <span class="project-tag">Folium</span>
+          <span class="project-tag">Plotly</span>
+          <span class="project-tag">scikit-learn</span>
+          <span class="project-tag">USGS API</span>
+          <span class="project-tag">K-Means</span>
+          <span class="project-tag">pandas</span>
         </div>
-        <span class="project-soon">⏳ &nbsp;Live demo coming soon</span>
+        <div class="project-links">
+          <a href="https://earthquake-risk-dashboards.streamlit.app/" target="_blank" class="project-live"><span class="project-live-dot"></span> Check it live — Streamlit</a>
+          <a href="https://github.com/anirudh-rs/earthquake-risk-dashboard" target="_blank" class="project-live project-live-ghost"><span class="project-live-dot"></span> GitHub</a>
+        </div>
       </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-arrow">&#8599;</div>
     </div>
 
     <div class="project-item reveal">
       <div class="project-num">03</div>
       <div class="project-body">
-        <div class="project-category">ML · Retail · Segmentation</div>
-        <div class="project-title">Retail Customer Segmentation &amp; Targeting Tool</div>
-        <p class="project-desc">Segments retail customers using RFM analysis and clustering algorithms, then recommends tailored marketing strategies for each group — giving campaign teams a clear, data-backed plan of action.</p>
-        <div class="project-impact">Bridges classical marketing science (RFM) with modern clustering. The output isn't just a data model — it's a recommendation a marketing team can act on the same day.</div>
+        <div class="project-category">SQL · PostgreSQL · Data Engineering</div>
+        <div class="project-title">Sales Funnel Drop-off Analysis</div>
+        <p class="project-desc">A full end-to-end SQL analytics pipeline built entirely in PostgreSQL 18.3 — no Python, no external libraries — processing 109 million rows of real e-commerce events from an Eastern European electronics retailer across October and November 2019. Covers every stage a production data analyst would own: staging table ingestion of 14.2GB raw CSVs, a 5-script preprocessing pipeline (null audit, deduplication via ROW_NUMBER with ctid, DST-aware timestamp normalisation, IQR outlier detection, and a master clean view), followed by 5 analysis scripts covering funnel conversion, drop-off by brand and category, week-over-week trends using LAG/LEAD, and revenue concentration using NTILE and PERCENTILE_CONT. Visualised across 3 Tableau Public dashboards and a standalone HTML/CSS/Chart.js dashboard.</p>
+        <div class="project-impact">Overall funnel conversion 12.90%. The view-to-cart stage leaks 80.69% of users — 4,095,942 people lost at a single step. Total revenue $315M across 9 weeks. Singles Day drove 21.53% of 9-week revenue in one week with cart abandonment spiking to 58.51% — users loaded carts and deferred to Black Friday. The most surprising finding: cart abandonment is not a price problem. Converters and abandoners had virtually identical average cart prices ($209.70 vs $208.06, a $1.64 gap). The real differentiator was engagement depth — converted users viewed 40% more products and had twice as many cart interactions. Discounting is the wrong lever; product discovery is the right one. Top 10% of buyers generate 49.83% of revenue — a 50/10 distribution more concentrated than the classic Pareto rule.</div>
         <div class="project-tags">
-          <span class="project-tag">K-Means</span>
-          <span class="project-tag">DBSCAN</span>
-          <span class="project-tag">scikit-learn</span>
-          <span class="project-tag">Plotly</span>
-          <span class="project-tag">UCI Retail Dataset</span>
+          <span class="project-tag">PostgreSQL 18.3</span>
+          <span class="project-tag">pgAdmin</span>
+          <span class="project-tag">Pure SQL</span>
+          <span class="project-tag">CTEs</span>
+          <span class="project-tag">Window Functions</span>
+          <span class="project-tag">Tableau Public</span>
         </div>
-        <a href="https://retail-customer-segmentation.streamlit.app/" target="_blank" class="project-live">
-          <span class="project-live-dot"></span> Check it live — Streamlit
-        </a>
+        <div class="project-links">
+          <a href="https://public.tableau.com/app/profile/anirudh.raghavendra/viz/SalesFunnel1_17772564713410/Overview" target="_blank" class="project-live"><span class="project-live-dot"></span> Dashboard 1 — Overview</a>
+          <a href="https://public.tableau.com/app/profile/anirudh.raghavendra/viz/SalesFunnel2/Performance" target="_blank" class="project-live"><span class="project-live-dot"></span> Dashboard 2 — Performance</a>
+          <a href="https://public.tableau.com/app/profile/anirudh.raghavendra/viz/SalesFunnel3/RevenueInsights" target="_blank" class="project-live"><span class="project-live-dot"></span> Dashboard 3 — Revenue Insights</a>
+        </div>
       </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-arrow">&#8599;</div>
     </div>
 
     <div class="project-item reveal">
       <div class="project-num">04</div>
       <div class="project-body">
+        <div class="project-category">ML · Clustering · Retail Analytics</div>
+        <div class="project-title">Retail Customer Segmentation &amp; Targeting Tool</div>
+        <p class="project-desc">A full end-to-end customer analytics pipeline processing 62 million transactions across three public retail datasets — UCI Online Retail II (UK gift retailer), H&M Fashion, and Instacart Grocery — unified into a single 7-column schema. Each dataset required different cleaning logic: UCI had 243k anonymous transactions and 18k cancellations, H&M had 2.97 million duplicates, and Instacart had no prices or dates requiring proxy engineering. An RFM scoring engine using quintile-based 1–5 scoring with inverted recency ranking segments 1,574,368 customers. K-Means with k=4 (deliberately overriding the silhouette-optimal k=2 in favour of actionable business output) identifies VIP, Champions, Regulars, and Lapsed tiers. Deployed as a six-page Streamlit dashboard with a segment explorer, marketing targeting tool, and churn risk report.</p>
+        <div class="project-impact">The same four-tier cluster structure emerged independently from three completely different retailers with no shared parameters — suggesting the RFM four-tier model reflects genuine retail customer behaviour, not an artefact of any one dataset. H&M VIP tier: 64,204 customers averaging 33 orders and £353 lifetime spend. Instacart Power Shoppers: 11,762 customers averaging 62 orders and 731 items lifetime. UCI outlier impact: 59 wholesale accounts (1% of customers) distorted all four clusters before 99th percentile capping. Scale: 62,027,333 transactions across 1,574,368 unique customers.</div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">K-Means</span>
+          <span class="project-tag">scikit-learn</span>
+          <span class="project-tag">Plotly</span>
+          <span class="project-tag">Streamlit</span>
+          <span class="project-tag">pandas</span>
+          <span class="project-tag">parquet</span>
+        </div>
+        <div class="project-links">
+          <a href="https://retail-customer-segmentation.streamlit.app" target="_blank" class="project-live"><span class="project-live-dot"></span> Check it live — Streamlit</a>
+          <a href="https://github.com/anirudh-rs/retail-customer-segmentation" target="_blank" class="project-live project-live-ghost"><span class="project-live-dot"></span> GitHub</a>
+        </div>
+      </div>
+      <div class="project-arrow">&#8599;</div>
+    </div>
+
+    <div class="project-item reveal">
+      <div class="project-num">05</div>
+      <div class="project-body">
         <div class="project-category">ML · Data Science · Streamlit</div>
         <div class="project-title">PokeMeta Analyser</div>
-        <p class="project-desc">A machine learning and data science project analysing how the Pokemon competitive meta has shifted across all nine generations. Features a 9-tab Streamlit dashboard covering generation power rankings, type dominance shifts, legendary impact analysis, stat profiles, model insights, and Gen 9 predictions — plus a headline Viability Predictor where you design any Pokemon from scratch and get a full competitive verdict with SHAP explanation, tier prediction, speed tier calculation, and a Type Matchup Defender showing weaknesses, resistances, and ability-granted immunities.</p>
-        <div class="project-impact">Binary viability classifier: ROC-AUC 0.9452, 89.3% accuracy, trained on Gens 1–7 and validated on unseen Gen 8. 43 of 112 Gen 9 Pokemon predicted viable before any official Smogon tier data existed. Fairy type went from 1.3% of Gen 5 to 17.6% of Gen 6 in a single generation. Gen 6 leads power rankings at 37.2% viable. 150+ abilities manually scored from −3 (Truant, Slow Start) to +5 (Speed Boost, Regenerator) — hidden ability score ranks 11th in SHAP importance.</div>
+        <p class="project-desc">A full end-to-end data science pipeline analysing how the Pokemon competitive meta has shifted across all nine generations — covering 1,194 Pokemon, 606 Smogon-tiered entries, and ability data for all 1,025 base form Pokemon fetched programmatically from PokeAPI. Two XGBoost models are trained: a binary viability classifier and a 3-class tier classifier. The headline feature is the Viability Predictor — input any custom Pokemon's stats, typing, and ability and receive a viability verdict with probability, SHAP waterfall chart, tier prediction, nature recommendation accounting for ability interactions, speed tier calculator with ability modifiers, and a Type Matchup Defender with ability-granted immunity overrides (Levitate removes Ground, Flash Fire removes Fire, and 9 others). Delivered as a 9-tab Streamlit dashboard.</p>
+        <div class="project-impact">Binary classifier: ROC-AUC 0.9452, 89.3% accuracy on a fully held-out Gen 8 test set — model almost never misses a genuinely viable Pokemon (1 false negative on 84-Pokemon test set). Adding ability scores improved ROC-AUC from 0.932 to 0.9452. 43 of 112 Gen 9 Pokemon predicted viable before any official Smogon tier data existed. Fairy type went from 1.3% of Gen 5 to 17.6% of Gen 6 in one generation — the single largest type shift in the dataset. Gen 6 leads Power Rankings at 37.2% viable. Legendary BST gap peaked at 253 points in Gen 6, now just 116 in Gen 9. 27 Pokemon identified as statistically overrated — good stats undermined by crippling abilities (Truant, Slow Start, Defeatist).</div>
         <div class="project-tags">
           <span class="project-tag">XGBoost</span>
           <span class="project-tag">SHAP</span>
@@ -717,72 +756,56 @@ footer {
           <span class="project-tag">PokeAPI</span>
           <span class="project-tag">scikit-learn</span>
         </div>
-        <a href="https://pokemon-meta-tracker.streamlit.app/" target="_blank" class="project-live">
-          <span class="project-live-dot"></span> Check it live — Streamlit
-        </a>
+        <div class="project-links">
+          <a href="https://pokemon-meta-tracker.streamlit.app/" target="_blank" class="project-live"><span class="project-live-dot"></span> Check it live — Streamlit</a>
+        </div>
       </div>
       <div class="project-arrow">&#8599;</div>
     </div>
 
     <div class="project-item reveal">
-      <div class="project-num">05</div>
+      <div class="project-num">06</div>
       <div class="project-body">
         <div class="project-category">SQL · Statistics · A/B Testing</div>
         <div class="project-title">A/B Test Results Analysis</div>
-        <p class="project-desc">A complete statistical experimentation framework built entirely in SQL — no Python or R. Analyses 882,000+ rows across two real e-commerce experiments using z-scores, p-values, and confidence intervals computed directly in PostgreSQL. Covers conversion rate analysis, ad frequency segmentation across four exposure tiers, day-of-week and hour-of-day breakdowns, and three independent validation methods — all telling the same consistent story. Three dashboards in Tableau Public covering results, ad deep dive, and test integrity.</p>
-        <div class="project-impact">Proved the new landing page should not be shipped despite 294,000 users in test (z=1.24, p=0.39). Discovered a 43% conversion uplift in the ad group over PSA (z=7.37, p≈0.00) and a 52x conversion rate difference between low and high ad exposure tiers. Caught a data quality issue affecting 1.3% of participants, and validated a perfect 50/50 traffic split across all 23 days of the experiment.</div>
+        <p class="project-desc">A complete statistical experimentation framework built entirely in PostgreSQL — no Python or R for analysis. A 4-table relational schema stores 882,000+ rows from two real e-commerce experiments. The statistical engine computes z-scores, p-values via a SQL implementation of the normal CDF using the error function, 95% confidence intervals, and pooled proportion z-tests — all in pure SQL, mirroring how experimentation analytics works inside data teams at scale. Three independent validation methods (z-scores, p-values, confidence intervals) all consistent with each other. Results written back into a persistent analysis_summary table. Three Tableau Public dashboards cover experiment results, ad exposure deep dive, and test integrity.</p>
+        <div class="project-impact">Landing page test returned no significant difference (z=1.24, p=0.39) — do not ship, despite 294,000 users in test. Ad group drove 43% relative conversion uplift over PSA (z=7.37, p≈0.00). Users shown 100+ ads converted at 17.14% vs 0.33% for 1-10 ad exposures — a 52x difference. Traffic split held at a perfect 50/50 every day across all 23 days. 1.3% of users received mismatched page assignments — a data quality issue caught and flagged. Conversion rates stabilised within 3 days confirming adequate test duration. The inconclusive landing page result is as valuable as the significant ad result — it prevented a wasted engineering rollout.</div>
         <div class="project-tags">
           <span class="project-tag">PostgreSQL</span>
           <span class="project-tag">pgAdmin</span>
           <span class="project-tag">Pure SQL</span>
-          <span class="project-tag">Tableau Public</span>
           <span class="project-tag">Statistics</span>
+          <span class="project-tag">Tableau Public</span>
         </div>
-        <a href="https://public.tableau.com/app/profile/anirudh.raghavendra/vizzes" target="_blank" class="project-live">
-          <span class="project-live-dot"></span> View dashboards — Tableau Public
-        </a>
-      </div>
-      <div class="project-arrow">↗</div>
-    </div>
-
-    <div class="project-item reveal">
-      <div class="project-num">06</div>
-      <div class="project-body">
-        <div class="project-category">ML · IoT · Automation</div>
-        <div class="project-title">AI Smart Home Automation System</div>
-        <p class="project-desc">A system that observes your habits and automatically controls lights and thermostats to optimise comfort and reduce energy usage — without you having to program a single rule.</p>
-        <div class="project-impact">Combines ML pattern recognition with real-time IoT messaging. The system genuinely adapts over time rather than following rigid schedules, making it smarter the more it's used.</div>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">scikit-learn</span>
-          <span class="project-tag">MQTT</span>
-          <span class="project-tag">Home Assistant</span>
+        <div class="project-links">
+          <a href="https://public.tableau.com/app/profile/anirudh.raghavendra/viz/ABTesting1_17771333267360/ExperimentsResultsSummary" target="_blank" class="project-live"><span class="project-live-dot"></span> Dashboard 1 — Experiment Results</a>
+          <a href="https://public.tableau.com/app/profile/anirudh.raghavendra/viz/ABTesting2_17771333874980/AdExposureAnalysis" target="_blank" class="project-live"><span class="project-live-dot"></span> Dashboard 2 — Ad Exposure</a>
+          <a href="https://public.tableau.com/app/profile/anirudh.raghavendra/viz/ABTesting3/TestIntegrityTimeSeries" target="_blank" class="project-live"><span class="project-live-dot"></span> Dashboard 3 — Test Integrity</a>
         </div>
-        <a href="https://anirudh-smart-home.streamlit.app/" target="_blank" class="project-live">
-          <span class="project-live-dot"></span> Check it live — Streamlit
-        </a>
       </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-arrow">&#8599;</div>
     </div>
 
     <div class="project-item reveal">
       <div class="project-num">07</div>
       <div class="project-body">
-        <div class="project-category">ML · Data Engineering · Tableau</div>
-        <div class="project-title">US Flight Delay Prediction System</div>
-        <p class="project-desc">End-to-end ML pipeline predicting domestic flight delays using 1.86 million real BTS flight records across 2019, 2022, and 2023. Built a Python data pipeline that cleans, engineers features, and loads data into PostgreSQL — enriched with real historical weather data from the Open-Meteo API across 142 US airports, covering 62.5% of all flights. Integrates three data sources: BTS flight records, OurAirports coordinate database, and Open-Meteo weather API.</p>
-        <div class="project-impact">Two XGBoost models trained: a binary delay classifier (ROC-AUC 0.72) and a four-bracket delay severity classifier (Weighted F1 0.60). SHAP explainability identified departure hour, route delay history, and airline reliability as the strongest predictors. Full project on GitHub with documented setup and reproducible pipeline scripts.</div>
+        <div class="project-category">ML · IoT · Time Series · Streamlit</div>
+        <div class="project-title">AI Smart Home Analytics Platform</div>
+        <p class="project-desc">A full end-to-end IoT analytics pipeline with seven distinct layers: an MQTT broker (Mosquitto) with a Python device simulator publishing sensor readings, a UCI adapter ingesting 19,735 real household readings from a Belgian smart home across a full winter-to-spring seasonal transition, a supervised Random Forest classifier predicting optimal device states per hour, an Isolation Forest anomaly detector flagging unusual sensor combinations, a Prophet time-series model with external temperature and humidity regressors forecasting 14-day energy consumption, a business KPI engine computing five metrics with plain-English recommendations, and a rule engine converting predictions into 48 human-readable JSON automation rules. Deployed as a seven-section Streamlit dashboard.</p>
+        <div class="project-impact">Light habit model accuracy jumped from 50% on simulated data to 88% on real UCI data — demonstrating exactly why synthetic data is insufficient for credible ML claims. Isolation Forest flagged 5.0% anomaly rate including midnight lights-on events and 3–4am motion detection. Prophet projected $693 annual energy cost with 95% confidence intervals. Peak usage hours 20:00–22:00 correctly identified from 138 days of real data without manual labelling. Key honest decision: when all light rules showed OFF (accurate for LED household), the binary chart was replaced with actual hourly Wh consumption rather than faking ON states to fill it — documented in the README as a Known Limitation and a strong interview talking point.</div>
         <div class="project-tags">
-          <span class="project-tag">XGBoost</span>
-          <span class="project-tag">SHAP</span>
-          <span class="project-tag">PostgreSQL</span>
-          <span class="project-tag">Python</span>
-          <span class="project-tag">Open-Meteo API</span>
-          <span class="project-tag">Tableau Public</span>
+          <span class="project-tag">scikit-learn</span>
+          <span class="project-tag">Prophet</span>
+          <span class="project-tag">MQTT</span>
+          <span class="project-tag">Isolation Forest</span>
+          <span class="project-tag">Random Forest</span>
+          <span class="project-tag">Plotly</span>
+          <span class="project-tag">Streamlit</span>
         </div>
-        <a href="https://public.tableau.com/app/profile/anirudh.raghavendra/viz/USFlightDelayPredictionSystem/AirlinePerformanceDelayTrends" target="_blank" class="project-live">
-          <span class="project-live-dot"></span> View dashboard — Tableau Public
-        </a>
+        <div class="project-links">
+          <a href="https://anirudh-smart-home.streamlit.app/" target="_blank" class="project-live"><span class="project-live-dot"></span> Check it live — Streamlit</a>
+          <a href="https://github.com/anirudh-rs/ai-smart-home" target="_blank" class="project-live project-live-ghost"><span class="project-live-dot"></span> GitHub</a>
+        </div>
       </div>
       <div class="project-arrow">&#8599;</div>
     </div>
@@ -790,21 +813,26 @@ footer {
     <div class="project-item reveal">
       <div class="project-num">08</div>
       <div class="project-body">
-        <div class="project-category">ML · HR Analytics · Dashboard</div>
-        <div class="project-title">Employee Attrition Intelligence Dashboard</div>
-        <p class="project-desc">End-to-end HR analytics platform that predicts which employees are likely to leave, explains the reasons behind each prediction, and presents findings in an interactive dashboard built for non-technical HR teams. Three datasets merged (IBM HR Analytics, HRDataset v14, Employee Burnout) into a single enriched master dataset of 1,470 employees across 44 features — including engineered signals like burnout pressure index, promotion stagnation, and career velocity.</p>
-        <div class="project-impact">XGBoost trained with SMOTE to handle class imbalance, achieving ROC-AUC 0.78 with threshold tuning to optimise recall for at-risk employees. SHAP surfaced stock option level and overtime as the strongest attrition drivers. The Streamlit dashboard covers five tabs: risk distribution, a flagged employee register with CSV export, SHAP explainability charts, department-level alerts, and a live benchmark tab pulling real national turnover data from the US Bureau of Labor Statistics API.</div>
+        <div class="project-category">ML · Data Engineering · PostgreSQL · Tableau</div>
+        <div class="project-title">US Flight Delay Prediction System</div>
+        <p class="project-desc">A fully reproducible end-to-end data science pipeline predicting whether a US domestic flight will be delayed and by how much. Ingests and cleans 3 million raw BTS flight records, loads them into PostgreSQL, engineers 23 predictive features through SQL aggregations and Python transformations, fetches real historical weather data from Open-Meteo API across 142 US airports (covering 95.8% of flight volume), trains two XGBoost models, and exports purpose-built analytical CSVs into a four-dashboard Tableau Public publication. Pandemic years 2020–2021 deliberately excluded — structurally abnormal delay patterns would degrade model generalisation to normal operations. Switched from regression (R²=0.04) to four-bracket classification after diagnosing that exact minute prediction is fundamentally limited without real-time ATC data.</p>
+        <div class="project-impact">Binary delay classifier: ROC-AUC 0.7203, competitive with published academic benchmarks (0.68–0.75 range). Bracket classifier: Weighted F1 0.595, on-time precision 89% — when the model says on-time it's right nearly 9 times out of 10. Departure hour is the strongest predictor (SHAP=0.38), nearly double the second-ranked feature. Route delay rate (SHAP=0.23) reveals certain routes are structurally delayed regardless of conditions. Carrier reliability outranks weather as a predictor — who you fly with matters more than the forecast. Friday evening departures from major hubs consistently show highest delay rates across all three years.</div>
         <div class="project-tags">
           <span class="project-tag">XGBoost</span>
           <span class="project-tag">SHAP</span>
-          <span class="project-tag">SMOTE</span>
-          <span class="project-tag">Streamlit</span>
+          <span class="project-tag">PostgreSQL</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Open-Meteo API</span>
           <span class="project-tag">Tableau Public</span>
-          <span class="project-tag">BLS API</span>
+          <span class="project-tag">SQLAlchemy</span>
         </div>
-        <a href="https://hr-attrition-analytics-dashboard.streamlit.app/" target="_blank" class="project-live">
-          <span class="project-live-dot"></span> Check it live — Streamlit
-        </a>
+        <div class="project-links">
+          <a href="https://public.tableau.com/app/profile/anirudh.raghavendra/viz/USFlightDelayPredictionSystem/AirlinePerformanceDelayTrends" target="_blank" class="project-live"><span class="project-live-dot"></span> Dashboard 1 — Airline Performance</a>
+          <a href="https://public.tableau.com/app/profile/anirudh.raghavendra/viz/USFlightDelayPredictionSystem2/RouteAirportDelayMap" target="_blank" class="project-live"><span class="project-live-dot"></span> Dashboard 2 — Route &amp; Airport Map</a>
+          <a href="https://public.tableau.com/app/profile/anirudh.raghavendra/viz/USFlightDelayPredictionSystem3/DelayPatternsandWeatherImpact" target="_blank" class="project-live"><span class="project-live-dot"></span> Dashboard 3 — Weather Impact</a>
+          <a href="https://public.tableau.com/app/profile/anirudh.raghavendra/viz/USFlightDelayPredictionSystem4/ModelPerformanceKeyDrivers" target="_blank" class="project-live"><span class="project-live-dot"></span> Dashboard 4 — Model Performance</a>
+          <a href="https://github.com/anirudh-rs/flight-delay-prediction" target="_blank" class="project-live project-live-ghost"><span class="project-live-dot"></span> GitHub</a>
+        </div>
       </div>
       <div class="project-arrow">&#8599;</div>
     </div>
@@ -812,42 +840,69 @@ footer {
     <div class="project-item reveal">
       <div class="project-num">09</div>
       <div class="project-body">
-        <div class="project-category">AI · RAG · NLP</div>
-        <div class="project-title">PL 24/25 Assist — Premier League RAG Assistant</div>
-        <p class="project-desc">A natural language assistant for the 2024/25 Premier League season. Ask anything about any of the 20 clubs — results, standings, managers, stadiums, records — and get a direct answer with source citations. Built on a RAG pipeline with 21 embedded Wikipedia documents, query expansion, source prioritisation, and sliding window conversation memory for natural follow-up questions.</p>
-        <div class="project-impact">Hallucination is prevented by design — GPT-4o receives strictly labelled, retrieved context and a constrained prompt. Includes a club focus mode that narrows retrieval to a selected team, and automatic standings injection for position and comparison questions.</div>
+        <div class="project-category">ML · HR Analytics · Dashboard</div>
+        <div class="project-title">Employee Attrition Intelligence Dashboard</div>
+        <p class="project-desc">An end-to-end HR analytics platform predicting which employees are likely to leave and explaining why — in plain language a manager can act on before the resignation happens. Three Kaggle datasets merged into one enriched master dataset of 1,470 employees across 40 features using probabilistic statistical matching (no shared employee ID existed). Six custom signals engineered: BurnoutPressureIndex, PromotionStagnation, SalaryPerLevel, CareerVelocity, ManagerStability, and TotalSatisfaction. XGBoost trained on SMOTE-balanced data; threshold tuned from 0.50 to 0.29 via F1 maximisation on the minority class (+17 percentage points recall). Five-tab Streamlit dashboard including a live BLS JOLTS API benchmark tab pulling real national quit rates.</p>
+        <div class="project-impact">ROC-AUC 0.7797. Recall improved from 36% to 53% through threshold tuning alone — without changing the underlying model. 203 of 1,470 employees flagged as high risk (13.8%). Stock Option Level was the #1 attrition driver — beating overtime, salary, and satisfaction. Burnout score was lower among employees who left — disengaged employees do less work, not more. WFH availability correlated with higher attrition — more marketable employees have more outside options. EngagementSurvey ranked 6th in global SHAP importance, validating the decision to enrich the IBM dataset with HRDataset v14.</div>
         <div class="project-tags">
-          <span class="project-tag">LangChain</span>
-          <span class="project-tag">ChromaDB</span>
-          <span class="project-tag">GPT-4o</span>
+          <span class="project-tag">XGBoost</span>
+          <span class="project-tag">SHAP</span>
+          <span class="project-tag">SMOTE</span>
           <span class="project-tag">Streamlit</span>
+          <span class="project-tag">Plotly</span>
+          <span class="project-tag">BLS API</span>
           <span class="project-tag">Python</span>
         </div>
-        <a href="https://rag-document-assistant-ralxaxcpjy4pzwmt3phjoe.streamlit.app/" target="_blank" class="project-live">
-          <span class="project-live-dot"></span> Check it live — Streamlit
-        </a>
+        <div class="project-links">
+          <a href="https://hr-attrition-analytics-dashboard.streamlit.app/" target="_blank" class="project-live"><span class="project-live-dot"></span> Check it live — Streamlit</a>
+        </div>
       </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-arrow">&#8599;</div>
     </div>
 
     <div class="project-item reveal">
       <div class="project-num">10</div>
       <div class="project-body">
-        <div class="project-category">AI · Audio · ML</div>
-        <div class="project-title">AI Stem Separation &amp; Remix Tool</div>
-        <p class="project-desc">Upload any song and isolate its individual components — vocals, drums, bass, guitar — in seconds. Built for musicians, producers, and anyone who learns music by ear.</p>
-        <div class="project-impact">Applies Meta's state-of-the-art Demucs model to a real creative use case, wrapping cutting-edge audio source separation in a simple, accessible interface anyone can use.</div>
+        <div class="project-category">AI · RAG · NLP · LangChain</div>
+        <div class="project-title">PL 24/25 Assist — Premier League RAG Assistant</div>
+        <p class="project-desc">An end-to-end RAG pipeline enabling natural language Q&amp;A over 21 Premier League Wikipedia documents. PDFs loaded via PyPDFLoader, chunked with RecursiveCharacterTextSplitter (chunk size 1000, overlap 200), embedded with OpenAI text-embedding-3-small, and stored in a persistent ChromaDB vector store. On each query: the pipeline expands the query with season and club context, retrieves k=14 chunks, reorders by source priority, injects standings chunks for position/comparison questions, labels each chunk by type, and passes labelled context with sliding window conversation history (last 3 turns) to GPT-4o via ChatPromptTemplate. Returns answers with page-level source citations. Club focus mode shifts both retrieval priority and system prompt framing without any architectural change.</p>
+        <div class="project-impact">3,097 total chunks across 21 documents. Basic RAG with k=10 and no query expansion returned completely irrelevant chunks — wrong clubs in 100% of retrieved results. Query expansion alone fixed club-specific retrieval. Standings injection was necessary for comparison questions — without it GPT-4o cited Europa League qualification to rank teams rather than reading the actual table. Context labelling eliminated cross-contamination hallucinations. Conversation memory enables accurate follow-up resolution — "how many points did they finish with?" correctly resolves "they" from prior turn. ChromaDB committed to repo to avoid cold-start re-ingestion on Streamlit Cloud's ephemeral filesystem.</div>
         <div class="project-tags">
-          <span class="project-tag">Meta Demucs</span>
-          <span class="project-tag">librosa</span>
+          <span class="project-tag">LangChain</span>
+          <span class="project-tag">ChromaDB</span>
+          <span class="project-tag">GPT-4o</span>
+          <span class="project-tag">OpenAI Embeddings</span>
           <span class="project-tag">Streamlit</span>
           <span class="project-tag">Python</span>
         </div>
-        <a href="https://huggingface.co/spaces/anirudh-rs/ai-stem-separator" target="_blank" class="project-live">
-          <span class="project-live-dot"></span> Check it live — Hugging Face
-        </a>
+        <div class="project-links">
+          <a href="https://rag-document-assistant-ralxaxcpjy4pzwmt3phjoe.streamlit.app/" target="_blank" class="project-live"><span class="project-live-dot"></span> Check it live — Streamlit</a>
+        </div>
       </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-arrow">&#8599;</div>
+    </div>
+
+    <div class="project-item reveal">
+      <div class="project-num">11</div>
+      <div class="project-body">
+        <div class="project-category">AI · Audio · ML · Streamlit</div>
+        <div class="project-title">AI Stem Separation &amp; Remix Tool</div>
+        <p class="project-desc">A full audio intelligence pipeline: file upload → AI stem separation via Meta Demucs htdemucs_6s → feature extraction via librosa → genre classification via per-stem XGBoost models → visualisation dashboard → PDF/CSV report generation → cloud deployment. Per-stem XGBoost models rather than one generic classifier — drums use zero crossing rate and beat count, piano and guitar use chroma and harmonic content, vocals use MFCCs. Confidence thresholding at 55%: predictions below this return Inconclusive rather than a wrong answer — a deliberate acknowledgement that GTZAN was trained on full mixed songs, not isolated stems. Two songs can be analysed independently in parallel without overwriting each other, with a comparison tab.</p>
+        <div class="project-impact">67% genre classification accuracy across 10 genres on 1,000 GTZAN samples — versus 10% random baseline. Classical achieved 100% accuracy — most distinct sonic fingerprint of all genres. Rock scored lowest at 40% — most confused with metal and country. Bohemian Rhapsody and Don't Stop Me Now both demonstrated guitar/piano frequency overlap limitation (300–2000Hz shared range). Blackbird and Someone Like You separated correctly with zero false detections — sparse acoustic arrangements work best. Model trained automatically on first run via Hugging Face — models too large for the repo are detected on startup and trained from the CSV already in the repository.</div>
+        <div class="project-tags">
+          <span class="project-tag">Meta Demucs</span>
+          <span class="project-tag">librosa</span>
+          <span class="project-tag">XGBoost</span>
+          <span class="project-tag">scikit-learn</span>
+          <span class="project-tag">Streamlit</span>
+          <span class="project-tag">Hugging Face</span>
+          <span class="project-tag">PyTorch</span>
+        </div>
+        <div class="project-links">
+          <a href="https://anirudh-rs-ai-stem-separator.hf.space" target="_blank" class="project-live"><span class="project-live-dot"></span> Check it live — Hugging Face</a>
+        </div>
+      </div>
+      <div class="project-arrow">&#8599;</div>
     </div>
 
   </div>
@@ -887,7 +942,6 @@ footer {
         <div class="skill-group-title">Tools &amp; Platforms</div>
         <ul class="skill-list">
           <li>Tableau</li>
-          <li>Power BI</li>
           <li>Streamlit</li>
           <li>Microsoft Azure</li>
           <li>Snowflake</li>
